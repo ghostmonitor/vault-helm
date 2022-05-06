@@ -2,6 +2,9 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
+  annotations:
+    meta.helm.sh/release-name: {{ include "vault.name" . }}-agent-injector
+    meta.helm.sh/release-namespace: {{ .Release.Namespace }}
   name: {{ template "vault.fullname" . }}-agent-injector-leader-elector-binding
   labels:
     app.kubernetes.io/name: {{ include "vault.name" . }}-agent-injector

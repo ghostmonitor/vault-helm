@@ -7,6 +7,9 @@ apiVersion: rbac.authorization.k8s.io/v1beta1
 {{- end }}
 kind: ClusterRoleBinding
 metadata:
+  annotations:
+    meta.helm.sh/release-name: {{ include "vault.name" . }}
+    meta.helm.sh/release-namespace: {{ .Release.Namespace }}
   name: {{ template "vault.fullname" . }}-server-binding
   labels:
     helm.sh/chart: {{ include "vault.chart" . }}

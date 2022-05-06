@@ -14,6 +14,8 @@ metadata:
     app.kubernetes.io/managed-by: {{ .Release.Service }}
   annotations:
 {{ template "vault.service.annotations" .}}
+    meta.helm.sh/release-name: {{ include "vault.name" . }}
+    meta.helm.sh/release-namespace: {{ .Release.Namespace }}
 spec:
   {{- if .Values.server.service.type}}
   type: {{ .Values.server.service.type }}
