@@ -1,5 +1,19 @@
 ## Unreleased
 
+## 0.10.0 (March 25th, 2021)
+
+Features:
+* Add support for [Vault CSI provider](https://github.com/hashicorp/vault-csi-provider) [GH-461](https://github.com/hashicorp/vault-helm/pull/461)
+
+Improvements:
+* `objectSelector` can now be set on the mutating admission webhook [GH-456](https://github.com/hashicorp/vault-helm/pull/456)
+
+## 0.9.1 (February 2nd, 2021)
+
+Bugs:
+* Injector: fix labels for default anti-affinity rule [GH-441](https://github.com/hashicorp/vault-helm/pull/441), [GH-442](https://github.com/hashicorp/vault-helm/pull/442)
+* Set VAULT_DEV_LISTEN_ADDRESS in dev mode [GH-446](https://github.com/hashicorp/vault-helm/pull/446)
+
 ## 0.9.0 (January 5th, 2021)
 
 Features:
