@@ -22,6 +22,9 @@ spec:
       component: webhook
   template:
     metadata:
+      annotations:
+        meta.helm.sh/release-name: {{ include "vault.name" . }}-agent-injector
+        meta.helm.sh/release-namespace: {{ .Release.Namespace }}
       labels:
         app.kubernetes.io/name: {{ template "vault.name" . }}-agent-injector
         app.kubernetes.io/instance: {{ .Release.Name }}

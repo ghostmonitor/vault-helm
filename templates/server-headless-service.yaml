@@ -15,7 +15,7 @@ metadata:
   annotations:
     meta.helm.sh/release-name: {{ include "vault.name" . }}
     meta.helm.sh/release-namespace: {{ .Release.Namespace }}
-{{ template "vault.service.annotations" .}}
+{{- template "vault.service.annotations" .}}
 spec:
   clusterIP: None
   publishNotReadyAddresses: true

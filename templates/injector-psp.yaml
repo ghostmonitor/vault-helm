@@ -5,12 +5,12 @@ metadata:
   annotations:
     meta.helm.sh/release-name: {{ include "vault.name" . }}-agent-injector
     meta.helm.sh/release-namespace: {{ .Release.Namespace }}
+{{- template "vault.psp.annotations" . }}
   name: {{ template "vault.fullname" . }}-agent-injector
   labels:
     app.kubernetes.io/name: {{ include "vault.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
-{{- template "vault.psp.annotations" . }}
 spec:
   privileged: false
   # Required to prevent escalations to root.

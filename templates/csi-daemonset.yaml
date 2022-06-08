@@ -8,7 +8,10 @@ metadata:
     app.kubernetes.io/name: {{ include "vault.name" . }}-csi-provider
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
-  {{ template "csi.daemonSet.annotations" . }}
+  annotations:
+  {{- template "csi.daemonSet.annotations" . }}
+    meta.helm.sh/release-name: {{ include "vault.name" . }}-agent-injector
+    meta.helm.sh/release-namespace: {{ .Release.Namespace }}
 spec:
   updateStrategy:
     type: {{ .Values.csi.daemonSet.updateStrategy.type }}
@@ -25,7 +28,10 @@ spec:
       labels:
         app.kubernetes.io/name: {{ template "vault.name" . }}-csi-provider
         app.kubernetes.io/instance: {{ .Release.Name }}
-      {{ template "csi.pod.annotations" . }}
+      annotations:
+      {{- template "csi.pod.annotations" . }}
+        meta.helm.sh/release-name: {{ include "vault.name" . }}-agent-injector
+        meta.helm.sh/release-namespace: {{ .Release.Namespace }}
     spec:
       serviceAccountName: {{ template "vault.fullname" . }}-csi-provider
       {{- template "csi.pod.tolerations" . }}
