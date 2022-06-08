@@ -272,7 +272,7 @@ Sets extra pod annotations
 */}}
 {{- define "vault.annotations" -}}
   {{- if .Values.server.annotations }}
-        annotations:
+      annotations:
         {{- $tp := typeOf .Values.server.annotations }}
         {{- if eq $tp "string" }}
           {{- tpl .Values.server.annotations . | nindent 8 }}
