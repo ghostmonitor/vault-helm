@@ -8,9 +8,6 @@ metadata:
     app.kubernetes.io/name: {{ include "vault.name" . }}-agent-injector
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
-  annotations:
-    meta.helm.sh/release-name: {{ include "vault.name" . }}-agent-injector
-    meta.helm.sh/release-namespace: {{ .Release.Namespace }}
   {{ template "injector.service.annotations" . }}
 spec:
   ports:
