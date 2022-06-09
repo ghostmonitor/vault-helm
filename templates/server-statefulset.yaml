@@ -12,8 +12,6 @@ metadata:
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
   {{- template "vault.statefulSet.annotations" . }}
-    meta.helm.sh/release-name: {{ include "vault.name" . }}
-    meta.helm.sh/release-namespace: {{ .Release.Namespace }}
 spec:
   serviceName: {{ template "vault.fullname" . }}-internal
   podManagementPolicy: Parallel
