@@ -29,8 +29,6 @@ metadata:
       {{- toYaml . | nindent 4 }}
     {{- end }}
   {{- template "vault.ingress.annotations" . }}
-    meta.helm.sh/release-name: {{ include "vault.name" . }}
-    meta.helm.sh/release-namespace: {{ .Release.Namespace }}
 spec:
 {{- if .Values.server.ingress.tls }}
   tls:
