@@ -4,9 +4,6 @@
 apiVersion: policy/v1beta1
 kind: PodSecurityPolicy
 metadata:
-  annotations:
-    meta.helm.sh/release-name: {{ include "vault.name" . }}-agent-injector
-    meta.helm.sh/release-namespace: {{ .Release.Namespace }}
   name: {{ template "vault.fullname" . }}-agent-injector
   labels:
     app.kubernetes.io/name: {{ include "vault.name" . }}
