@@ -4,12 +4,11 @@
 apiVersion: v1
 kind: Endpoints
 metadata:
-  annotations:
-    meta.helm.sh/release-name: {{ include "vault.name" . }}-agent-injector
-    meta.helm.sh/release-namespace: {{ .Release.Namespace }}
   name: {{ template "vault.fullname" . }}-agent-injector-leader
   annotations:
     deprecated: "true"
+    meta.helm.sh/release-name: {{ include "vault.name" . }}-agent-injector
+    meta.helm.sh/release-namespace: {{ .Release.Namespace }}
   labels:
     app.kubernetes.io/name: {{ include "vault.name" . }}-agent-injector
     app.kubernetes.io/instance: {{ .Release.Name }}
